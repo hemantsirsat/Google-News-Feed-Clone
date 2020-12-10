@@ -17,7 +17,7 @@ const NewsList = ({destination}) => {
                 renderItem={({ item })=>{   
                     return(
                         <TouchableOpacity
-                            onPress={()=>destination.navigate('Details')}
+                            onPress={()=>destination.navigate('Details',{website:item.url})}
                         >    
                             <CardHolder 
                                 headLine={item.title}

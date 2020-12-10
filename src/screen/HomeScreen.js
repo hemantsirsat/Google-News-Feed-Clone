@@ -6,10 +6,10 @@ import NewsCard from '../components/NewsCard';
 const HomeScreen = ({navigation}) => {
     return(
         <View style={styles.container}>
+            <StatusBar style="auto" />
             <NewsCard 
                 details={navigation}
             />
-            <StatusBar style="auto" />
         </View>
     );
 };

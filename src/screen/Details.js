@@ -1,11 +1,17 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import { WebView } from 'react-native-webview';
 
-const Details = () => {
+const runFirst = `
+      document.body.style.backgroundColor = 'red';
+      true; // note: this is required, or you'll sometimes get silent failures
+    `;
+
+const Details = ({ route }) => {
     return(
-        <View>
-            <Text>Detail Page</Text>
-        </View>
+        <WebView
+            source={{ uri: route.params.website}}
+            injectedJavaScript={runFirst}
+        />
     );
 };
 
