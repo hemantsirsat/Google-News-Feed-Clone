@@ -4,7 +4,6 @@ import { Text, View, Image, StyleSheet } from 'react-native';
 const CardHolder = ( {headLine, description, publishername, imageurl} ) => {
 
     let Image_uri = imageurl;
-    console.log(imageurl);
     
     return(
         <View style={style.viewStyle}>

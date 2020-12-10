@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import React from 'react';
+import { View, StyleSheet } from 'react-native';
 import NewsList from './NewsList';
 import Banner from './Banner';
 

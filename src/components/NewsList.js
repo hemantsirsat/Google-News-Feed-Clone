@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import { FlatList, TouchableOpacity, StyleSheet, View, ScrollView } from 'react-native';
+import { FlatList, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import CardHolder from './CardHolder';
 import Feed from '../hooks/Feed';
 
