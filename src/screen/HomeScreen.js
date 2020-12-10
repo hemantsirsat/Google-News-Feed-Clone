@@ -3,10 +3,12 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
 import NewsCard from '../components/NewsCard';
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
     return(
         <View style={styles.container}>
-            <NewsCard />
+            <NewsCard 
+                details={navigation}
+            />
             <StatusBar style="auto" />
         </View>
     );

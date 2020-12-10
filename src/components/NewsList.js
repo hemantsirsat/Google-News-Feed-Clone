@@ -1,34 +1,35 @@
-import React, {useEffect} from 'react';
-import { FlatList, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
+import React from 'react';
+import { StatusBar } from 'expo-status-bar';
+import { FlatList, TouchableOpacity, StyleSheet } from 'react-native';
 import CardHolder from './CardHolder';
 import Feed from '../hooks/Feed';
 
-const NewsList = () => {
+const NewsList = ({destination}) => {
+
     const [FetchNews, feed, errorMessage] = Feed();
-/*   
-    useEffect(()=>{
-        FetchNews();
-    },[]);
-*/
+
     return(
-        <ScrollView>
+        <>
+            <StatusBar style="auto" />
             <FlatList
                 data={feed}
                 keyExtractor={(item)=>item.url}
                 renderItem={({ item })=>{   
                     return(
-                        <TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={()=>destination.navigate('Details')}
+                        >    
                             <CardHolder 
                                 headLine={item.title}
                                 description={item.description}
-                                imageurl={`${item.urlToImage}`}
+                                imageurl={item.urlToImage}
                                 publishername={item.source.name}
                             />
                         </TouchableOpacity>
                     );
                 }}
             />
-        </ScrollView>
+        </>
     );
 };
 

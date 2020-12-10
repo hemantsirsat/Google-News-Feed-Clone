@@ -4,12 +4,13 @@ import NewsList from './NewsList';
 import Banner from './Banner';
 
 
-const NewsCard = () =>{
-
+const NewsCard = ({ details }) =>{
     return(
         <View style={style.viewStyle}>
             <Banner />
-            <NewsList />
+            <NewsList 
+                destination={details}
+            />
         </View>
     );
 };
