@@ -1,5 +1,5 @@
-import React, {useEffect,useState} from 'react';
-import { FlatList, TouchableOpacity, StyleSheet, View } from 'react-native';
+import React, {useEffect} from 'react';
+import { FlatList, TouchableOpacity, StyleSheet, View, ScrollView } from 'react-native';
 import CardHolder from './CardHolder';
 import Feed from '../hooks/Feed';
 
@@ -11,7 +11,7 @@ const NewsList = () => {
     },[]);
 */
     return(
-        <View>
+        <ScrollView>
             <FlatList
                 data={feed}
                 keyExtractor={(item)=>item.url}
@@ -28,7 +28,7 @@ const NewsList = () => {
                     );
                 }}
             />
-        </View>
+        </ScrollView>
     );
 };
 
