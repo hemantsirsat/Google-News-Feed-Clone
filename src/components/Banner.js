@@ -16,7 +16,7 @@ const style = StyleSheet.create({
     imageStyle:{
         width:'auto',
         height:100,
-        marginHorizontal:15,
+        marginHorizontal:10,
         marginTop:30,
         marginBottom:10,
         borderRadius:10

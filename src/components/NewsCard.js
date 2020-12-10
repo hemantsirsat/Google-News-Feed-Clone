@@ -1,10 +1,15 @@
-import React from 'react';
-import { Text, View, StyleSheet, Image } from 'react-native';
-import { Header } from 'react-native/Libraries/NewAppScreen';
+import React, { useEffect } from 'react';
+import { Text, View, StyleSheet } from 'react-native';
 import CardHolder from './CardHolder';
 import Banner from './Banner';
+import Feed from '../hooks/Feed';
 
 const NewsCard = () =>{
+
+    const [FetchNews, feed, errorMessage] = Feed();
+    useEffect(()=>{
+        FetchNews();
+    },[]);
     return(
         <View style={style.viewStyle}>
             <Banner />
@@ -16,12 +21,6 @@ const NewsCard = () =>{
 const style = StyleSheet.create({
     viewStyle:{
         flex:1,
-    },
-    imageStyle:{
-        alignSelf:'center',
-        marginTop:50,
-        height:200,
-        width:200,
     }
 });
 

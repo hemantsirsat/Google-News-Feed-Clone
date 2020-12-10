@@ -2,58 +2,49 @@ import React from 'react';
 import { Text, View, Image, StyleSheet } from 'react-native';
 
 const CardHolder = () => {
-    let Image_uri = {uri:"https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/HBB7HXHLXZHBLCJ7VNHMATDLNI.jpg&w=1440"}
+    let Image_uri = {uri:"https://static.india.com/wp-content/uploads/2020/12/HRD-Minister.png"}
     return(
         <View style={style.viewStyle}>
             <Image 
                 style={style.imageStyle}
                 source={Image_uri}
             />
-            <View style={style.imageCaption}>
-                <Text style={style.authorName}>John Wagner</Text>
-                <Text style={style.publisherName}>The Washington Post</Text>
-            </View>
             <Text style={style.headLine}>
-                Live updates: Biden to introduce health team members; Trump to tout progress on vaccines - The Washington Post
-            </Text>
+            CBSE Board Exam 2021: Education Minister Answers Queries on Syllabus Reduction, Postponement of Exams | Know - India.com            </Text>
             <Text style={style.summaryStyle}>
-                The Arizona Republican Party, whose chairwoman has formally challenged Bidens victory in the state, is using its Twitter account to ask its followers whether they are willing to die....
-            </Text>
+CBSE Board Exam 2021 Latest Updates: On questions of reduction of CBSE Class 10 and 12 syllabus, Pokhriyal said that the board has already reduced the 30 per cent of the syllabus. However, he didn't rule out the possibility of further reduction in the syllabu…            </Text>
+            <View style={style.imageCaption}>
+                <Text style={style.publisherName}>India.com</Text>
+            </View>
         </View>
     );
 };
 
 const style = StyleSheet.create({
     viewStyle:{
-        padding:2,
-        marginHorizontal:20,
-        borderWidth:2
-    },
-    imageCaption:{
-        flexDirection:'row',
-        
+        marginHorizontal:15,
+        borderWidth:2,
+        backgroundColor:'#222',
+        borderRadius:10,
+        paddingBottom:10
     },
     imageStyle:{
         height:150,
     },
-    authorName:{
-        marginLeft:5,
-        color:'#D3D3D3',
-        fontFamily:'monospace'
-    },
     publisherName:{
-        marginLeft:'auto',
-        marginRight:5,
-        color:'#D3D3D3',
-        fontFamily:'monospace'
+        color:'#808080',
+        marginHorizontal:10
     },
     headLine:{
         fontSize:20,
-        fontWeight:'bold',
-        marginHorizontal:5,
+        marginHorizontal:10,
+        color:'#fff'
     },
     summaryStyle:{
-        fontSize:16
+        fontSize:14,
+        color:'#808080',
+        marginVertical:7,
+        marginHorizontal:10
     }
 });
 
