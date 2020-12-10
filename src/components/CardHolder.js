@@ -1,20 +1,27 @@
 import React from 'react';
 import { Text, View, Image, StyleSheet } from 'react-native';
 
-const CardHolder = () => {
-    let Image_uri = {uri:"https://static.india.com/wp-content/uploads/2020/12/HRD-Minister.png"}
+const CardHolder = ( {headLine, description, publishername, imageurl} ) => {
+
+    let Image_uri = imageurl;
+    console.log(imageurl);
+    
     return(
         <View style={style.viewStyle}>
             <Image 
                 style={style.imageStyle}
-                source={Image_uri}
+                source={{uri:Image_uri}}  
             />
             <Text style={style.headLine}>
-            CBSE Board Exam 2021: Education Minister Answers Queries on Syllabus Reduction, Postponement of Exams | Know - India.com            </Text>
+                {headLine}
+            </Text>
             <Text style={style.summaryStyle}>
-CBSE Board Exam 2021 Latest Updates: On questions of reduction of CBSE Class 10 and 12 syllabus, Pokhriyal said that the board has already reduced the 30 per cent of the syllabus. However, he didn't rule out the possibility of further reduction in the syllabu…            </Text>
+                {description}
+            </Text>
             <View style={style.imageCaption}>
-                <Text style={style.publisherName}>India.com</Text>
+                <Text style={style.publisherName}>
+                    {publishername}
+                </Text>
             </View>
         </View>
     );
@@ -26,7 +33,8 @@ const style = StyleSheet.create({
         borderWidth:2,
         backgroundColor:'#222',
         borderRadius:10,
-        paddingBottom:10
+        paddingBottom:10,
+        marginVertical:6
     },
     imageStyle:{
         height:150,
