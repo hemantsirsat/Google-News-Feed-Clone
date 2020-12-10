@@ -1,14 +1,13 @@
 import React from 'react';
 import { Text, View, StyleSheet, Image } from 'react-native';
+import { Header } from 'react-native/Libraries/NewAppScreen';
 import CardHolder from './CardHolder';
+import Banner from './Banner';
 
 const NewsCard = () =>{
     return(
         <View style={style.viewStyle}>
-            <Image 
-                source={require('../../assets/homeImage.png')}
-                style = {style.imageStyle}
-            />
+            <Banner />
             <CardHolder />
         </View>
     );
