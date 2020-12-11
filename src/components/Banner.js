@@ -1,11 +1,13 @@
 import  React from 'react';
+import { StatusBar } from 'expo-status-bar';
 import { Image, StyleSheet, View } from 'react-native';
 
 const Banner = () => {
     return(
         <View>
+            <StatusBar style='light'/>
             <Image
-                source={require('../../assets/banner.jpg')}
+                source={require('../../assets/banner.png')}
                 style={style.imageStyle}
             />
         </View>

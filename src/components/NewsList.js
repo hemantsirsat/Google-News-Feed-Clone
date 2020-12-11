@@ -1,8 +1,8 @@
 import React from 'react';
-import { StatusBar } from 'expo-status-bar';
 import { FlatList, TouchableOpacity, StyleSheet } from 'react-native';
 import CardHolder from './CardHolder';
 import Feed from '../hooks/Feed';
+import Banner from '../components/Banner';
 
 const NewsList = ({destination}) => {
 
@@ -10,7 +10,7 @@ const NewsList = ({destination}) => {
 
     return(
         <>
-            <StatusBar style="auto" />
+            <Banner />
             <FlatList
                 data={feed}
                 keyExtractor={(item)=>item.url}

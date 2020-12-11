@@ -25,8 +25,7 @@ export default function App() {
         component={Details}
       />
     </Stack.Navigator>
-  </NavigationContainer>
-    
+  </NavigationContainer> 
   );
 }
 
