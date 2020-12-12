@@ -4,7 +4,6 @@ import NewsList from './NewsList';
 
 const NewsCard = ({ details }) =>{
     return(
-        
         <View style={style.viewStyle}>
             <NewsList 
                 destination={details}
