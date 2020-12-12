@@ -28,25 +28,26 @@ const CardHolder = ( {headLine, description, publishername, imageurl} ) => {
 
 const style = StyleSheet.create({
     viewStyle:{
-        marginHorizontal:16,
-        borderWidth:2,
+        marginHorizontal:18,
         backgroundColor:'#222',
         borderRadius:10,
         paddingBottom:10,
-        marginVertical:8
+        marginVertical:9
     },
     imageStyle:{
         height:150,
-        borderRadius:10
+        borderTopLeftRadius:10,
+        borderTopRightRadius:10
     },
     publisherName:{
         color:'#808080',
         marginHorizontal:10
     },
     headLine:{
-        fontSize:20,
+        fontSize:18,
         marginHorizontal:10,
-        color:'#fff'
+        color:'#fff',
+        paddingTop:15
     },
     summaryStyle:{
         fontSize:14,

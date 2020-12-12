@@ -15,7 +15,7 @@ const NewsCard = ({ details }) =>{
 
 const style = StyleSheet.create({
     viewStyle:{
-        flex:1,
+        flex:1
     }
 });
 
