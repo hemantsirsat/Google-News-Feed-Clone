@@ -2,7 +2,7 @@
 
 ## Table of Content
 * [About](#about)
-* [Installation](#install-locally-(using-npm))
+* [Installation](#install-locally)
 * [ScreenShots](#screenshots)
 
 ## About
@@ -10,7 +10,7 @@
 * The news feed uses http://newsapi.org for gathering news data.
 * Created using Expo
 
-## Install Locally (Using npm)
+## Install Locally
 ```
 git clone https://github.com/hemantsirsat/Google-News-Feed-Clone.git
 cd news

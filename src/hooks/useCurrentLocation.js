@@ -1,9 +1,10 @@
-import React from 'react';
 import * as Location from 'expo-location';
 import { useState } from 'react';
+import { useEffect } from 'react/cjs/react.development';
 
 export default () =>{
-    const [currentLocation, setcurrentLocation] = useState('');
+    const [currentLocationLatitude, setcurrentLocationLatitude] = useState('');
+    const [currentLocationLongitude, setcurrentLocationLongitude] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
     //get user current location
@@ -17,8 +18,11 @@ export default () =>{
         }
         //Location object stored in locationCordinates
         let locationCordinates = await Location.getCurrentPositionAsync();
-        setcurrentLocation(locationCordinates);
+        setcurrentLocationLatitude(locationCordinates.coords.latitude);
+        setcurrentLocationLongitude(locationCordinates.coords.longitude);
     }
-
-    return [GetLocationCordinates, currentLocation, errorMessage];
+    useEffect(()=>{
+        GetLocationCordinates();
+    },[]);
+    return [currentLocationLatitude, currentLocationLongitude, errorMessage];
 };
