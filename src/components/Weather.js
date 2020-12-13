@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Text, View, StyleSheet, Image } from 'react-native';
+import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import useWeatherDetails from '../hooks/useWeatherDetails';
 import { Feather } from '@expo/vector-icons';
 
@@ -9,30 +9,36 @@ const Weather = () => {
     useEffect(()=>{
         FetchWeather();
     },[]);
-
-    if(!Temperature){
-        return null
-    };
     
     const iconImage = 'https://openweathermap.org/img/wn/'+IconID+'.png';
 
     return(
-        <View style={styles.viewStyle}>
-            <Image 
-                source={{uri:iconImage}}
-                style={styles.iconStyle}
-            />
-            <View style={styles.firstLineStyle}>
-                <Text style={styles.cityStyle}>{Temperature}&deg;C in {City}</Text>
-                <Text style={styles.descriptionStyle}>{Description}</Text>
-                
-            </View>
-            <View style={styles.secondLineStyle}>
-                <Text style={styles.minmaxtextStyle}>{TemperatureMax}&deg;/{TemperatureMin}&deg;</Text>        
-                <Text style={styles.windStyle}><Feather name="wind" size={18} color="white" /> {Wind} m/s</Text>
-            </View>
-        </View>
-    );
+        <TouchableOpacity
+            onPress={()=>FetchWeather()}
+        >
+            {(!Temperature) ? 
+                <View style={styles.viewNotFoundStyle}>
+                    <Text style={styles.notFoundStyle}>Tap To Refresh</Text>
+                </View>
+                :
+                <View style={styles.viewStyle}>
+                    <Image 
+                        source={{uri:iconImage}}
+                        style={styles.iconStyle}
+                    />
+                    <View style={styles.firstLineStyle}>
+                        <Text style={styles.cityStyle}>{Temperature}&deg;C in {City}</Text>
+                        <Text style={styles.descriptionStyle}>{Description}</Text>
+                        
+                    </View>
+                    <View style={styles.secondLineStyle}>
+                        <Text style={styles.minmaxtextStyle}>{TemperatureMax}&deg;/{TemperatureMin}&deg;</Text>        
+                        <Text style={styles.windStyle}><Feather name="wind" size={18} color="white" /> {Wind} m/s</Text>
+                    </View>
+                </View>
+            }
+        </TouchableOpacity>
+    );  
 };
 
 const styles = StyleSheet.create({
@@ -43,7 +49,7 @@ const styles = StyleSheet.create({
         marginHorizontal:18,
         marginVertical:7,
         borderRadius:10,
-        flexDirection:'row'
+        flexDirection:'row',
     },
     iconStyle:{
         width:30,
@@ -79,6 +85,20 @@ const styles = StyleSheet.create({
         paddingLeft:15,
         paddingTop:5,
         fontSize:13
+    },
+    viewNotFoundStyle:{
+        backgroundColor:'#222',
+        width:'auto',
+        height:70,
+        marginHorizontal:18,
+        marginVertical:7,
+        justifyContent:'center',
+        borderRadius:10,
+    },  
+    notFoundStyle:{
+        color:"#fff",
+        alignItems:'center',
+        textAlign:'center',
     }
 });
 
