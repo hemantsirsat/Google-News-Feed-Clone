@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, Image } from 'react-native';
 import useWeatherDetails from '../hooks/useWeatherDetails';
 import { Feather } from '@expo/vector-icons';
 
@@ -9,16 +9,26 @@ const Weather = () => {
     useEffect(()=>{
         FetchWeather();
     },[]);
+
+    if(!Temperature){
+        return null
+    };
     
+    const iconImage = 'https://openweathermap.org/img/wn/'+IconID+'.png';
+
     return(
         <View style={styles.viewStyle}>
+            <Image 
+                source={{uri:iconImage}}
+                style={styles.iconStyle}
+            />
             <View style={styles.firstLineStyle}>
-                <Text style={styles.cityStyle}>{Temperature}&deg; in {City}</Text>
-                <Text style={styles.minmaxtextStyle}>{TemperatureMax}&deg;/{TemperatureMin}&deg;</Text>
+                <Text style={styles.cityStyle}>{Temperature}&deg;C in {City}</Text>
+                <Text style={styles.descriptionStyle}>{Description}</Text>
+                
             </View>
             <View style={styles.secondLineStyle}>
-                <Text style={styles.descriptionStyle}>{Description}</Text>
-        
+                <Text style={styles.minmaxtextStyle}>{TemperatureMax}&deg;/{TemperatureMin}&deg;</Text>        
                 <Text style={styles.windStyle}><Feather name="wind" size={18} color="white" /> {Wind} m/s</Text>
             </View>
         </View>
@@ -29,38 +39,46 @@ const styles = StyleSheet.create({
     viewStyle:{
         backgroundColor:'#222',
         width:'auto',
-        height:80,
+        height:70,
         marginHorizontal:18,
         marginVertical:7,
         borderRadius:10,
-        padding:20
-    },
-    firstLineStyle:{
         flexDirection:'row'
     },
+    iconStyle:{
+        width:30,
+        height:'auto',
+        marginLeft:20
+    },  
+    firstLineStyle:{
+        flexDirection:'column',
+        marginTop:15,
+    },
     secondLineStyle:{
-        flexDirection:'row',
-        paddingTop:10,
+        flexDirection:'column',
+        marginTop:15
     },
     cityStyle:{
         color:'#fff',
-        paddingLeft:50
+        paddingLeft:15,
+        fontSize:13
     },  
     minmaxtextStyle:{
         marginLeft:30,
-        color:'#fff'
+        color:'#fff',
+        fontSize:13
     },
     windStyle:{
         color:"#fff",
-        marginLeft:97
+        marginLeft:30,
+        paddingTop:5,
+        fontSize:13
     },
     descriptionStyle:{
         color:'#fff',
-        paddingLeft:50
-    },
-    textStyle:{
-        color:'#fff',
-        alignSelf:'center'
+        paddingLeft:15,
+        paddingTop:5,
+        fontSize:13
     }
 });
 
