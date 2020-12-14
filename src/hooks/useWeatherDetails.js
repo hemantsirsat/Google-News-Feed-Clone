@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import openweather from '../api/openweather';
 import useCurrentLocation from '../hooks/useCurrentLocation';
 
